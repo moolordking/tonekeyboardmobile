@@ -1,0 +1,843 @@
+
+<html>
+<head>
+	<title>Tone Keyboard</title>
+	<style>
+		body {
+			background-color: black;
+			background-image: url("bac.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			overflow: hidden;
+		}
+
+		.keys {
+			margin-top: 35vh;
+			width: 11vw;
+			height: 11vw;
+			background-color: white;
+			border-radius: 1050px;
+			opacity: 0.5;
+			display:inline-block;
+			animation: arrive 0.5s;
+			border: none;
+		}
+
+		.keys:hover {
+			animation: tilt 0.5s;
+		}
+
+		.keys:active {
+			animation: tiltactive 0.5s;
+		}
+
+
+
+		.keys2 {
+			margin-top: 5vh;
+			width: 11vw;
+			height: 11vw;
+			background-color: white;
+			border-radius: 1050px;
+			opacity: 0.5;
+			display:inline-block;
+			animation: arrive 0.5s;
+			border: none;
+		}
+
+		.keys2:hover {
+			animation: tilt 0.5s;
+		}
+
+		.keys2:active {
+			animation: tiltactive 0.5s;
+		}
+
+
+
+		#showinput {
+			border-radius: 1050px;
+			position: absolute;
+			width: 5.5vw;
+			height: 5.5vw;
+			background-color: white;
+			margin-left: 86vw;
+			margin-top: 10vh;
+			background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Location_dot_black.svg/1024px-Location_dot_black.svg.png");
+			background-size: 4vw;
+			background-position: center;
+			background-repeat: no-repeat;
+			opacity: 0.5;
+		}
+
+		#showinput:hover {
+			animation: tilt 0.5s;
+		}
+
+		#showinput:active {
+			animation: tiltactive 0.5s;
+		}
+
+		#showinput2 {
+			border-radius: 1050px;
+			position: absolute;
+			width: 5.5vw;
+			height: 5.5vw;
+			background-color: white;
+			margin-left: 6vw;
+			margin-top: 10vh;
+			background-image: url("http://downloadicons.net/sites/default/files/number-8-icon-63216.png");
+			background-size: 5vw;
+			background-position: center;
+			background-repeat: no-repeat;
+			opacity: 0.5;
+		}
+
+		#showinput2:hover {
+			animation: tilt 0.5s;
+		}
+
+		#showinput2:active {
+			animation: tiltactive 0.5s;
+		}
+
+		#showinput3 {
+			border-radius: 1050px;
+			position: absolute;
+			width: 5.5vw;
+			height: 5.5vw;
+			background-color: white;
+			margin-left: 70vw;
+			margin-top: 10vh;
+			background-image: url("s.png");
+			background-size: 5vw;
+			background-position: center;
+			background-repeat: no-repeat;
+			opacity: 0.5;
+		}
+
+		#showinput3:hover {
+			animation: tilt 0.5s;
+		}
+
+		#showinput3:active {
+			animation: tiltactive 0.5s;
+		}
+
+		#showinput4 {
+			border-radius: 1050px;
+			position: absolute;
+			width: 5.5vw;
+			height: 5.5vw;
+			background-color: white;
+			margin-left: 78vw;
+			margin-top: 10vh;
+			background-image: url("http://www.clker.com/cliparts/p/b/S/j/z/3/white-letter-l-md.png");
+			background-size: 5vw;
+			background-position: center;
+			background-repeat: no-repeat;
+			opacity: 0.5;
+		}
+
+		#showinput4:hover {
+			animation: tilt 0.5s;
+		}
+
+		#showinput4:active {
+			animation: tiltactive 0.5s;
+		}
+
+		#showinput5 {
+			border-radius: 1050px;
+			position: absolute;
+			width: 5.5vw;
+			height: 5.5vw;
+			background-color: white;
+			margin-left: 15vw;
+			margin-top: 10vh;
+			background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HVV_Logo_Regionalbahn.svg/2000px-HVV_Logo_Regionalbahn.svg.png");
+			background-size: 4vw;
+			background-position: center;
+			background-repeat: no-repeat;
+			opacity: 0.5;
+		}
+
+		#showinput5:hover {
+			animation: tilt 0.5s;
+		}
+
+		#showinput5:active {
+			animation: tiltactive 0.5s;
+		}
+
+		.tones {
+			width: 5vw;
+			font-family: sans-serif;
+			border-radius: 10px;
+			background-color: rgba(0,0,0,0.6);
+			border: none;
+			color: white;
+			margin-top: 1vw;
+		}
+
+		#wavetype {
+			width: 15vw;
+			height: 10vh;
+			font-family: sans-serif;
+			border-radius: 50px;
+			background-color: rgba(0,0,0,0.6);
+			border: none;
+			color: white;
+			margin-top: 5vw;
+			margin-left: 50vw;
+			position: absolute;
+			font-size: 2vw;
+			font-weight: bold;
+		}
+
+		#wavetype *
+{
+	background-color: rgba(0,0,0,0.6);
+	color: white;
+	font-weight: bold;
+	opacity: 0.5;
+}
+
+		.slider {
+			position: absolute;
+    -webkit-appearance: none;
+    width: 40vw;
+    height: 10vh;
+    background: rgba(255,255,255,0.8);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 11vh;
+    border-radius: 1050px;
+    margin-left: 25vw;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15vh;
+    height: 15vh;
+    background: rgba(0,0,0,0.6);
+    cursor: pointer;
+    border-radius: 1050px;
+}
+
+		@keyframes tilt {
+			50%{opacity: 0.3;}
+		}
+
+		@keyframes tiltactive {
+			50%{opacity: 0.7;}
+		}
+
+		@keyframes arrive {
+			0%{transform:translate(0px,2vh);opacity: 0;}
+		}
+	</style>
+</head>
+<body onload="onloadfunction()">
+	<div id="showinput" onclick="toggleshowfun()"></div>
+	<div id="showinput2" onclick="toggleshowfun2()"></div>
+	<div id="showinput3" onclick="toggleshowfun3()"></div>
+	<div id="showinput4" onclick="toggleshowfun4()"></div>
+	<div id="showinput5" onclick="toggleshowfun5()"></div>
+	<input type="range" min="1" max="400" value="30" class="slider" id="myRange">
+	<!--<select id="wavetype">
+  <option value="triangle">TRIANGLE</option>
+  <option value="sine">SINE</option>
+  <option value="square">SQUARE</option>
+  <option value="sawtooth">SAWTOOTH</option>
+</select>
+-->
+	<center>
+<button id="key1" class="keys" onclick="clicked1()"><input id="input1" class="tones"></button>
+<button id="key2" class="keys" onclick="clicked2()"><input id="input2" class="tones"></button>
+<button id="key3" class="keys" onclick="clicked3()"><input id="input3" class="tones"></button>
+<button id="key4" class="keys" onclick="clicked4()"><input id="input4" class="tones"></button>
+<button id="key5" class="keys" onclick="clicked5()"><input id="input5" class="tones"></button>
+<button id="key6" class="keys" onclick="clicked6()"><input id="input6" class="tones"></button>
+<button id="key7" class="keys" onclick="clicked7()"><input id="input7" class="tones"></button>
+<button id="key8" class="keys" onclick="clicked8()"><input id="input8" class="tones"></button>
+
+<br>
+
+<button id="key9" class="keys2" onclick="clicked9()"><input id="input9" class="tones"></button>
+<button id="key10" class="keys2" onclick="clicked10()"><input id="input10" class="tones"></button>
+<button id="key11" class="keys2" onclick="clicked11()"><input id="input11" class="tones"></button>
+<button id="key12" class="keys2" onclick="clicked12()"><input id="input12" class="tones"></button>
+<button id="key13" class="keys2" onclick="clicked13()"><input id="input13" class="tones"></button>
+<button id="key14" class="keys2" onclick="clicked14()"><input id="input14" class="tones"></button>
+<button id="key15" class="keys2" onclick="clicked15()"><input id="input15" class="tones"></button>
+<button id="key16" class="keys2" onclick="clicked16()"><input id="input16" class="tones"></button>
+	</center>
+<script>
+	var toggleshow = false;
+	var toggleshow2 = false;
+	var dura;
+	var wpressed = true;
+	var counttorefresh = 0;
+	//document.getElementById("wavetype").value = localStorage.getItem("wavetypes");
+    	setTimeout(function() {wpressed = false}, 500);
+	var slider = document.getElementById("myRange");
+	slider.value = localStorage.getItem("duration");
+	showinput = document.getElementById("showinput");
+
+
+	setInterval(loop,1/3);
+
+
+	function onloadfunction() {
+	}
+
+	function toggleshowfun() {
+		toggleshow = !toggleshow;
+	}
+
+	//save frequencies
+
+	function toggleshowfun3() {
+		localStorage.setItem("value1", keyinput1.value);
+		localStorage.setItem("value2", keyinput2.value);
+		localStorage.setItem("value3", keyinput3.value);
+		localStorage.setItem("value4", keyinput4.value);
+		localStorage.setItem("value5", keyinput5.value);
+		localStorage.setItem("value6", keyinput6.value);
+		localStorage.setItem("value7", keyinput7.value);
+		localStorage.setItem("value8", keyinput8.value);
+		localStorage.setItem("value9", keyinput9.value);
+		localStorage.setItem("value10", keyinput10.value);
+		localStorage.setItem("value11", keyinput11.value);
+		localStorage.setItem("value12", keyinput12.value);
+		localStorage.setItem("value13", keyinput13.value);
+		localStorage.setItem("value14", keyinput14.value);
+		localStorage.setItem("value15", keyinput15.value);
+		localStorage.setItem("value16", keyinput16.value);
+		localStorage.setItem("wavetypes", wavetype);
+		localStorage.setItem("duration", slider.value);
+	}
+
+	//load frequencies
+
+	function toggleshowfun4() {
+		keyinput1.value = localStorage.getItem("value1");
+		keyinput2.value = localStorage.getItem("value2");
+		keyinput3.value = localStorage.getItem("value3");
+		keyinput4.value = localStorage.getItem("value4");
+		keyinput5.value = localStorage.getItem("value5");
+		keyinput6.value = localStorage.getItem("value6");
+		keyinput7.value = localStorage.getItem("value7");
+		keyinput8.value = localStorage.getItem("value8");
+		keyinput9.value = localStorage.getItem("value9");
+		keyinput10.value = localStorage.getItem("value10");
+		keyinput11.value = localStorage.getItem("value11");
+		keyinput12.value = localStorage.getItem("value12");
+		keyinput13.value = localStorage.getItem("value13");
+		keyinput14.value = localStorage.getItem("value14");
+		keyinput15.value = localStorage.getItem("value15");
+		keyinput16.value = localStorage.getItem("value16");
+		document.getElementById("wavetype").value = localStorage.getItem("wavetypes");
+		document.getElementById("myRange").value = localStorage.getItem("duration");
+	}
+
+	//load regular note frequencies
+
+	function toggleshowfun2() {
+		toggleshow2 = !toggleshow2;
+                if (toggleshow2 == false) {
+        keyinput1.value = "";
+		keyinput2.value = "";
+		keyinput3.value = "";
+		keyinput4.value = "";
+		keyinput5.value = "";
+		keyinput6.value = "";
+		keyinput7.value = "";
+		keyinput8.value = "";
+		keyinput9.value = "";
+		keyinput10.value = "";
+		keyinput11.value = "";
+		keyinput12.value = "";
+		keyinput13.value = "";
+		keyinput14.value = "";
+		keyinput15.value = "";
+		keyinput16.value = "";
+        }
+	}
+
+	function toggleshowfun5() {
+		location.reload();
+	}
+
+
+	function keyDownHandler(event) {
+    if(event.keyCode == 65) {
+        clicked1();
+    }
+    else if(event.keyCode == 83) {
+        clicked2();
+    }
+    if(event.keyCode == 68) {
+    	clicked3();
+    }
+    else if(event.keyCode == 70) {
+    	clicked4();
+    }
+    if(event.keyCode == 71) {
+        clicked5();
+    }
+    else if(event.keyCode == 72) {
+        clicked6();
+    }
+    if(event.keyCode == 74) {
+    	clicked7();
+    }
+    else if(event.keyCode == 75) {
+    	clicked8();
+    }
+
+
+    if(event.keyCode == 90) {
+        clicked9();
+    }
+    else if(event.keyCode == 88) {
+        clicked10();
+    }
+    if(event.keyCode == 67) {
+    	clicked11();
+    }
+    else if(event.keyCode == 86) {
+    	clicked12();
+    }
+    if(event.keyCode == 66) {
+        clicked13();
+    }
+    else if(event.keyCode == 78) {
+        clicked14();
+    }
+    if(event.keyCode == 77) {
+    	clicked15();
+    }
+    else if(event.keyCode == 188) {
+    	clicked16();
+    }
+
+    if(event.keyCode == 81) {
+    	localStorage.setItem("wavetypes", wavetype);
+    	durationa = slider.value;
+    	localStorage.setItem("duration", durationa);
+    	refreshthing();
+    }
+}
+
+	function refreshthing() {
+		sessionStorage.setItem("specialvalue1", input1.value);
+		sessionStorage.setItem("specialvalue2", input2.value);
+		sessionStorage.setItem("specialvalue3", input3.value);
+		sessionStorage.setItem("specialvalue4", input4.value);
+		sessionStorage.setItem("specialvalue5", input5.value);
+		sessionStorage.setItem("specialvalue6", input6.value);
+		sessionStorage.setItem("specialvalue7", input7.value);
+		sessionStorage.setItem("specialvalue8", input8.value);
+		sessionStorage.setItem("specialvalue9", input9.value);
+		sessionStorage.setItem("specialvalue10", input10.value);
+		sessionStorage.setItem("specialvalue11", input11.value);
+		sessionStorage.setItem("specialvalue12", input12.value);
+		sessionStorage.setItem("specialvalue13", input13.value);
+		sessionStorage.setItem("specialvalue14", input14.value);
+		sessionStorage.setItem("specialvalue15", input15.value);
+		sessionStorage.setItem("specialvalue16", input16.value);
+		location.reload();
+	}
+
+
+	function loop() {
+
+	//if (counttorefresh > 40) {
+	//	refreshthing();
+	//}
+
+	wavetype = "triangle";
+
+	dura = slider.value / 100;
+	keyinput1 = document.getElementById("input1");
+	keyinput2 = document.getElementById("input2");
+	keyinput3 = document.getElementById("input3");
+	keyinput4 = document.getElementById("input4");
+	keyinput5 = document.getElementById("input5");
+	keyinput6 = document.getElementById("input6");
+	keyinput7 = document.getElementById("input7");
+	keyinput8 = document.getElementById("input8");
+
+	keyinput9 = document.getElementById("input9");
+	keyinput10 = document.getElementById("input10");
+	keyinput11 = document.getElementById("input11");
+	keyinput12 = document.getElementById("input12");
+	keyinput13 = document.getElementById("input13");
+	keyinput14 = document.getElementById("input14");
+	keyinput15 = document.getElementById("input15");
+	keyinput16 = document.getElementById("input16");
+
+	if (wpressed == true) {
+
+	keyinput1.value = sessionStorage.getItem("specialvalue1");
+	keyinput2.value = sessionStorage.getItem("specialvalue2");
+	keyinput3.value = sessionStorage.getItem("specialvalue3");
+	keyinput4.value = sessionStorage.getItem("specialvalue4");
+	keyinput5.value = sessionStorage.getItem("specialvalue5");
+	keyinput6.value = sessionStorage.getItem("specialvalue6");
+	keyinput7.value = sessionStorage.getItem("specialvalue7");
+	keyinput8.value = sessionStorage.getItem("specialvalue8");
+	keyinput9.value = sessionStorage.getItem("specialvalue9");
+	keyinput10.value = sessionStorage.getItem("specialvalue10");
+	keyinput11.value = sessionStorage.getItem("specialvalue11");
+	keyinput12.value = sessionStorage.getItem("specialvalue12");
+	keyinput13.value = sessionStorage.getItem("specialvalue13");
+	keyinput14.value = sessionStorage.getItem("specialvalue14");
+	keyinput15.value = sessionStorage.getItem("specialvalue15");
+	keyinput16.value = sessionStorage.getItem("specialvalue16");
+
+}
+	document.addEventListener('keydown', keyDownHandler, false);
+
+
+
+		if (toggleshow == false) {
+		keyinput1.style.width = 0;
+		keyinput2.style.width = 0;
+		keyinput3.style.width = 0;
+		keyinput4.style.width = 0;
+		keyinput5.style.width = 0;
+		keyinput6.style.width = 0;
+		keyinput7.style.width = 0;
+		keyinput8.style.width = 0;
+
+		keyinput9.style.width = 0;
+		keyinput10.style.width = 0;
+		keyinput11.style.width = 0;
+		keyinput12.style.width = 0;
+		keyinput13.style.width = 0;
+		keyinput14.style.width = 0;
+		keyinput15.style.width = 0;
+		keyinput16.style.width = 0;
+		showinput.style.filter = "invert(0)";
+	} else {
+		keyinput1.style.width = "5vw";
+		keyinput2.style.width = "5vw";
+		keyinput3.style.width = "5vw";
+		keyinput4.style.width = "5vw";
+		keyinput5.style.width = "5vw";
+		keyinput6.style.width = "5vw";
+		keyinput7.style.width = "5vw";
+		keyinput8.style.width = "5vw";
+
+		keyinput9.style.width = "5vw";
+		keyinput10.style.width = "5vw";
+		keyinput11.style.width = "5vw";
+		keyinput12.style.width = "5vw";
+		keyinput13.style.width = "5vw";
+		keyinput14.style.width = "5vw";
+		keyinput15.style.width = "5vw";
+		keyinput16.style.width = "5vw";
+		showinput.style.filter = "invert(100)";
+	}
+
+
+	if (toggleshow2 == false) {
+		showinput2.style.filter = "invert(0)";
+	} else {
+		keyinput1.value = 130.8;
+		keyinput2.value = 146.8;
+		keyinput3.value = 164.8;
+		keyinput4.value = 174.6;
+		keyinput5.value = 196.0;
+		keyinput6.value = 220.0;
+		keyinput7.value = 247.0;
+		keyinput8.value = 261.6;
+
+		keyinput9.value = 293.6;
+		keyinput10.value = 329.6;
+		keyinput11.value = 349.2;
+		keyinput12.value = 392.0;
+		keyinput13.value = 440.0;
+		keyinput14.value = 493.8;
+		keyinput15.value = 523.2;
+		keyinput16.value = 587.3;
+		showinput2.style.filter = "invert(100)";
+	}
+}
+	
+
+
+	function clicked1() {
+		counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput1.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      	function clicked1up() {
+		const duration = 0.2;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked2() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput2.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked3() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput3.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked4() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput4.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked5() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput5.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked6() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput6.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked7() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput7.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked8() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput8.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+
+
+
+      function clicked9() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput9.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked10() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput10.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked11() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput11.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked12() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput12.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked13() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput13.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked14() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput14.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked15() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput15.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+
+      function clicked16() {
+      	counttorefresh += 1;
+		const context = new AudioContext();
+		const oscillator = context.createOscillator();
+		oscillator.type = wavetype;
+		oscillator.frequency.value = keyinput16.value;
+		const gainNode = context.createGain();
+		oscillator.connect(gainNode);
+		gainNode.connect(context.destination);
+		oscillator.start(0);
+		const duration = dura;
+
+gainNode.gain.linearRampToValueAtTime(0.0001, context.currentTime + duration);
+oscillator.stop(context.currentTime + duration);
+      }
+</script>
+</body>
+</html>
